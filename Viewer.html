@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shin Von Reinhaver 「Шин」 - Web & HTML Tools</title>
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --card-bg: rgba(30, 41, 59, 0.55);
+      --border: rgba(148, 163, 184, 0.16);
+      --accent: #38bdf8;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #172554 0%, var(--bg-dark) 65%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 28px 20px 60px;
+    }
+
+    .top-nav {
+      width: 100%;
+      max-width: 520px;
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 3px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 9px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .lang-btn:hover {
+      color: var(--text-main);
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: #090d16;
+      box-shadow: 0 2px 10px rgba(56, 189, 248, 0.35);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px 28px;
+      text-align: center;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 104px;
+      height: 104px;
+      margin: 0 auto 18px;
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      background: #1e293b;
+      display: block;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+    }
+
+    h1 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .bio {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+
+    .section-label {
+      text-align: left;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .tool-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 18px 20px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      color: var(--text-main);
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .tool-card:hover {
+      border-color: var(--accent);
+      background: rgba(56, 189, 248, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .tool-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .tool-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .tool-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 3px;
+    }
+
+    .tool-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .tool-arrow {
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .app-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #090d16;
+      z-index: 999;
+      flex-direction: column;
+    }
+
+    .app-overlay.active {
+      display: flex;
+    }
+
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      background: #0f172a;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .topbar-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #f8fafc;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .action-btn {
+      padding: 7px 14px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: #1e293b;
+      color: #e2e8f0;
+      transition: 0.2s;
+    }
+
+    .action-btn.active {
+      background: var(--accent);
+      color: #090d16;
+      border-color: var(--accent);
+    }
+
+    .copy-btn {
+      background: #10b981;
+      color: #052e16;
+      border-color: #10b981;
+    }
+
+    .copy-btn:hover {
+      background: #34d399;
+    }
+
+    .close-btn {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+
+    .close-btn:hover {
+      background: #ef4444;
+      color: #fff;
+    }
+
+    .app-frame {
+      flex: 1;
+      width: 100%;
+      border: none;
+      background: #fff;
+    }
+
+    .code-container {
+      display: none;
+      flex: 1;
+      width: 100%;
+      background: #0b1120;
+      overflow: auto;
+      padding: 20px;
+    }
+
+    pre {
+      color: #7dd3fc;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      white-space: pre;
+      tab-size: 2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-nav">
+    <div class="lang-switch">
+      <button class="lang-btn active" id="langId" onclick="setLanguage('id')">ID</button>
+      <button class="lang-btn" id="langEn" onclick="setLanguage('en')">EN</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="avatar-wrapper">
+      <img id="profileImg" class="avatar-img" referrerpolicy="no-referrer" crossorigin="anonymous" src="image.jpeg" alt="Shin Von Reinhaver">
+    </div>
+
+    <h1>Shin Von Reinhaver 「Шин」</h1>
+    <p class="bio" data-i18n="bio">
+      Koleksi aplikasi web mandiri, utilitas praktis, dan kode sumber HTML terbuka yang siap digunakan langsung dari browser.
+    </p>
+
+    <div class="section-label" data-i18n="sectionLabel">Daftar Aplikasi & Kode</div>
+
+    <div class="links">
+      <button class="tool-card" onclick="bukaAplikasi('PDF & Image Tools', 'pdf-tools.html')">
+        <div class="tool-info">
+          <div class="tool-icon">📄</div>
+          <div>
+            <div class="tool-title">PDF & Image Tools</div>
+            <div class="tool-desc" data-i18n="pdfDesc">Gabung PDF, pembuat stiker & tanda tangan • Lihat Tampilan & Kode</div>
+          </div>
+        </div>
+        <span class="tool-arrow">→</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="app-overlay" id="appOverlay">
+    <div class="topbar">
+      <span class="topbar-title" id="appTitle">PDF Tools</span>
+      <div class="topbar-actions">
+        <button class="action-btn active" id="btnViewApp" onclick="gantiMode('app')" data-i18n="btnPreview">Tampilan</button>
+        <button class="action-btn" id="btnViewCode" onclick="gantiMode('code')" data-i18n="btnCode">Kode HTML</button>
+        <button class="action-btn copy-btn" id="btnCopy" onclick="salinKode()" style="display:none;" data-i18n="btnCopy">Salin Kode</button>
+        <button class="action-btn close-btn" onclick="tutupAplikasi()" data-i18n="btnClose">✕ Tutup</button>
+      </div>
+    </div>
+
+    <iframe id="appFrame" class="app-frame"></iframe>
+    <div id="codeContainer" class="code-container">
+      <pre id="codeView"></pre>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      id: {
+        bio: "Koleksi aplikasi web mandiri, utilitas praktis, dan kode sumber HTML terbuka yang siap digunakan langsung dari browser.",
+        sectionLabel: "Daftar Aplikasi & Kode",
+        pdfDesc: "Gabung PDF, pembuat stiker & tanda tangan • Lihat Tampilan & Kode",
+        btnPreview: "Tampilan",
+        btnCode: "Kode HTML",
+        btnCopy: "Salin Kode",
+        btnCopied: "✓ Tersalin (Rapi + Penjelasan)!",
+        btnClose: "✕ Tutup",
+        loadingCode: "Memuat kode sumber..."
+      },
+      en: {
+        bio: "A curated collection of standalone web apps, practical utilities, and clean HTML source codes ready to run directly in your browser.",
+        sectionLabel: "Applications & Source Code",
+        pdfDesc: "Merge PDF, sticker maker & signature • Live Preview & Source Code",
+        btnPreview: "Live Preview",
+        btnCode: "HTML Code",
+        btnCopy: "Copy Code",
+        btnCopied: "✓ Copied (Formatted + Notes)!",
+        btnClose: "✕ Close",
+        loadingCode: "Loading source code..."
+      }
+    };
+
+    let currentLang = "id";
+    let kodeSumberMentah = "";
+    let kodeSumberSiapSalin = "";
+
+    const avatarSources = [
+      "image.jpeg",
+      "./image.jpeg",
+      "https://images.weserv.nl/?url=img.sanishtech.com/u/0a94ea50a3a7b12c8b75569dde098fe5.jpg&output=jpg",
+      "https://img.sanishtech.com/u/0a94ea50a3a7b12c8b75569dde098fe5.jpg",
+      "https://api.dicebear.com/7.x/bottts/svg?seed=Shin"
+    ];
+    let avatarIndex = 0;
+    const profileImg = document.getElementById("profileImg");
+
+    profileImg.onerror = function() {
+      avatarIndex++;
+      if (avatarIndex < avatarSources.length) {
+        this.src = avatarSources[avatarIndex];
+      } else {
+        this.onerror = null;
+      }
+    };
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.getElementById("langId").classList.toggle("active", lang === "id");
+      document.getElementById("langEn").classList.toggle("active", lang === "en");
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      if (kodeSumberMentah) {
+        const judulAktif = document.getElementById("appTitle").innerText;
+        kodeSumberSiapSalin = rapikanDanJelaskanHtml(kodeSumberMentah, judulAktif);
+        document.getElementById("codeView").textContent = kodeSumberSiapSalin;
+      }
+    }
+
+    function rapikanDanJelaskanHtml(html, judulApp) {
+      const tab = "  ";
+      let result = "";
+      let indent = "";
+      const isId = currentLang === "id";
+
+      const headerCatatan = isId
+        ? `<!-- ==========================================================================\n     APLIKASI : ${judulApp}\n     SUMBER   : Shin Von Reinhaver 「Шин」\n     CATATAN  : Kode ini telah dirapikan otomatis dan dilengkapi penjelasan bagian.\n     ========================================================================== -->\n`
+        : `<!-- ==========================================================================\n     APPLICATION : ${judulApp}\n     SOURCE      : Shin Von Reinhaver 「Шин」\n     NOTE        : Auto-formatted source code with section explanations.\n     ========================================================================== -->\n`;
+
+      html.split(/>\s*</).forEach(element => {
+        if (element.match(/^\/\w/)) {
+          indent = indent.substring(tab.length);
+        }
+
+        if (element.match(/^head\b/i)) {
+          result += `\n${indent}<!-- ${isId ? "BAGIAN HEAD: Pengaturan metadata, judul halaman, dan pemanggilan library/font" : "HEAD SECTION: Metadata settings, page title, and external libraries/fonts"} -->\n`;
+        } else if (element.match(/^style\b/i)) {
+          result += `\n${indent}<!-- ${isId ? "BAGIAN STYLE (CSS): Mengatur tata letak, warna tema, dan tampilan responsif" : "STYLE SECTION (CSS): Controls layout, theme colors, and responsive design"} -->\n`;
+        } else if (element.match(/^body\b/i)) {
+          result += `\n${indent}<!-- ${isId ? "BAGIAN BODY (UI): Struktur elemen antarmuka yang dilihat dan digunakan pengguna" : "BODY SECTION (UI): Main interface elements visible to the user"} -->\n`;
+        } else if (element.match(/^script\b/i)) {
+          result += `\n${indent}<!-- ${isId ? "BAGIAN SCRIPT (JAVASCRIPT): Logika utama, pemrosesan data, dan interaksi fitur" : "SCRIPT SECTION (JAVASCRIPT): Core logic, data processing, and interactive features"} -->\n`;
+        }
+
+        result += indent + "<" + element + ">\n";
+
+        if (
+          element.match(/^<?\w[^>]*[^\/]$/) &&
+          !element.startsWith("input") &&
+          !element.startsWith("img") &&
+          !element.startsWith("meta") &&
+          !element.startsWith("link") &&
+          !element.startsWith("br") &&
+          !element.startsWith("hr") &&
+          !element.startsWith("!DOCTYPE")
+        ) {
+          indent += tab;
+        }
+      });
+
+      const cleanBody = result.substring(1, result.length - 2);
+      return headerCatatan + cleanBody;
+    }
+
+    async function bukaAplikasi(judul, namaFile) {
+      document.getElementById("appTitle").innerText = judul;
+      const frame = document.getElementById("appFrame");
+      const codeBox = document.getElementById("codeView");
+      kodeSumberMentah = "";
+      kodeSumberSiapSalin = "";
+      codeBox.textContent = translations[currentLang].loadingCode;
+      frame.src = namaFile;
+
+      try {
+        const res = await fetch(namaFile);
+        if (res.ok) {
+          kodeSumberMentah = await res.text();
+          kodeSumberSiapSalin = rapikanDanJelaskanHtml(kodeSumberMentah, judul);
+          codeBox.textContent = kodeSumberSiapSalin;
+        }
+      } catch (e) {
+        frame.onload = function() {
+          try {
+            kodeSumberMentah = "<!DOCTYPE html>\n" + frame.contentDocument.documentElement.outerHTML;
+            kodeSumberSiapSalin = rapikanDanJelaskanHtml(kodeSumberMentah, judul);
+            codeBox.textContent = kodeSumberSiapSalin;
+          } catch (err) {
+            codeBox.textContent = "Silakan unggah ke Netlify atau GitHub Pages agar kode sumber dapat dibaca penuh.";
+          }
+        };
+      }
+
+      gantiMode("app");
+      document.getElementById("appOverlay").classList.add("active");
+    }
+
+    function tutupAplikasi() {
+      document.getElementById("appOverlay").classList.remove("active");
+      document.getElementById("appFrame").src = "about:blank";
+    }
+
+    function gantiMode(mode) {
+      const frame = document.getElementById("appFrame");
+      const codeContainer = document.getElementById("codeContainer");
+      const btnApp = document.getElementById("btnViewApp");
+      const btnCode = document.getElementById("btnViewCode");
+      const btnCopy = document.getElementById("btnCopy");
+
+      if (mode === "app") {
+        frame.style.display = "block";
+        codeContainer.style.display = "none";
+        btnCopy.style.display = "none";
+        btnApp.classList.add("active");
+        btnCode.classList.remove("active");
+      } else {
+        frame.style.display = "none";
+        codeContainer.style.display = "block";
+        btnCopy.style.display = "inline-block";
+        btnCode.classList.add("active");
+        btnApp.classList.remove("active");
+      }
+    }
+
+    function salinKode() {
+      if (!kodeSumberSiapSalin) return;
+      navigator.clipboard.writeText(kodeSumberSiapSalin).then(() => {
+        const btn = document.getElementById("btnCopy");
+        btn.textContent = translations[currentLang].btnCopied;
+        setTimeout(() => {
+          btn.textContent = translations[currentLang].btnCopy;
+        }, 2200);
+      });
+    }
+  </script>
+</body>
+</html>
