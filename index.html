@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="auto">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090d16">
+<title>Shin Von Reinhaver 「Шин」 - Web & HTML Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070b14;--bg2:#0d1424;--card:rgba(24,34,54,.62);--card2:rgba(15,23,42,.72);--line:rgba(148,163,184,.17);--ink:#f1f5f9;--mut:#94a3b8;--ac:#38bdf8;--on:#06111f;--ok:#34d399;--bad:#f87171;--code:#0a101d;--codeink:#cbd5e1;--shadow:0 30px 60px -24px rgba(0,0,0,.7);color-scheme:dark}
+:root[data-theme="light"]{--bg:#f3f6fb;--bg2:#e6ecf6;--card:rgba(255,255,255,.78);--card2:rgba(255,255,255,.9);--line:rgba(15,23,42,.12);--ink:#0f172a;--mut:#5b6b82;--ac:#0284c7;--on:#fff;--ok:#059669;--bad:#dc2626;--code:#fbfcff;--codeink:#1e293b;--shadow:0 24px 48px -24px rgba(30,41,59,.35);color-scheme:light}
+@media (prefers-color-scheme:light){:root[data-theme="auto"]{--bg:#f3f6fb;--bg2:#e6ecf6;--card:rgba(255,255,255,.78);--card2:rgba(255,255,255,.9);--line:rgba(15,23,42,.12);--ink:#0f172a;--mut:#5b6b82;--ac:#0284c7;--on:#fff;--ok:#059669;--bad:#dc2626;--code:#fbfcff;--codeink:#1e293b;--shadow:0 24px 48px -24px rgba(30,41,59,.35);color-scheme:light}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:"Plus Jakarta Sans",Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;min-height:100dvh;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lock{overflow:hidden}
+.mesh{position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 500px at 15% -10%,color-mix(in srgb,#2563eb 34%,transparent),transparent 60%),radial-gradient(700px 480px at 95% 5%,color-mix(in srgb,#db2777 22%,transparent),transparent 60%),radial-gradient(800px 500px at 50% 110%,color-mix(in srgb,#14b8a6 22%,transparent),transparent 60%),var(--bg)}
+svg.i{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+button,a.btn{font:inherit;color:inherit;cursor:pointer;text-decoration:none}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px;border-radius:8px}
+/* tombol seragam */
+.btn{--c:var(--ac);display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:9px 15px;border-radius:13px;font-size:.84rem;font-weight:700;border:1.5px solid color-mix(in srgb,var(--c) 38%,transparent);background:color-mix(in srgb,var(--c) 14%,var(--card2));color:var(--ink);white-space:nowrap;transition:transform .14s,box-shadow .18s,background .18s,border-color .18s}
+.btn:hover{transform:translateY(-2px);border-color:var(--c);background:color-mix(in srgb,var(--c) 26%,var(--card2));box-shadow:0 12px 22px -14px var(--c)}
+.btn:active{transform:scale(.95);box-shadow:none}
+.btn .chip{display:grid;place-items:center;width:26px;height:26px;margin-left:-6px;border-radius:9px;background:linear-gradient(140deg,var(--c),color-mix(in srgb,var(--c) 55%,#000));color:#fff;box-shadow:0 5px 10px -5px var(--c)}
+.btn .chip svg{width:15px;height:15px}
+.btn.primary{background:linear-gradient(135deg,var(--c1,var(--ac)),var(--c2,var(--ac)));color:#fff;border-color:transparent;box-shadow:0 12px 24px -12px var(--c1,var(--ac)),inset 0 1px 0 rgba(255,255,255,.3)}
+.btn.primary .chip{background:rgba(255,255,255,.24);box-shadow:none}
+.btn.primary:hover{filter:brightness(1.08);background:linear-gradient(135deg,var(--c1,var(--ac)),var(--c2,var(--ac)))}
+.btn.icon{padding:0;width:40px;height:40px;border-radius:12px}.btn.icon svg{width:18px;height:18px}
+.btn.danger{--c:var(--bad)}.btn.ok{--c:var(--ok)}.btn.violet{--c:#a78bfa}.btn.amber{--c:#fbbf24}.btn.pink{--c:#f472b6}
+.btn.on{background:linear-gradient(140deg,var(--c),color-mix(in srgb,var(--c) 58%,#000));color:#fff;border-color:transparent;box-shadow:0 8px 18px -8px var(--c)}
+.btn:disabled{opacity:.45;pointer-events:none}
+/* bilah atas */
+.bar{max-width:1040px;margin:0 auto;padding:calc(14px + env(safe-area-inset-top,0px)) 18px 0;display:flex;align-items:center;gap:10px}
+.bar .sp{flex:1}
+.seg{display:inline-flex;gap:5px;padding:4px;border-radius:14px;background:var(--card2);border:1px solid var(--line);backdrop-filter:blur(14px)}
+.seg .btn{padding:6px 12px;border-radius:10px;font-size:.74rem;letter-spacing:.05em;border-color:transparent;background:transparent;box-shadow:none}
+.seg .btn:hover{transform:none;box-shadow:none;background:color-mix(in srgb,var(--c) 18%,transparent)}
+.seg .btn.on,.seg .btn.on:hover{border-color:transparent;background:linear-gradient(140deg,var(--c),color-mix(in srgb,var(--c) 58%,#000));color:#fff;box-shadow:0 8px 16px -8px var(--c)}
+/* profil */
+.wrap{max-width:1040px;margin:0 auto;padding:18px 18px 60px}
+.profile{display:flex;flex-direction:column;align-items:center;text-align:center;padding:30px 20px 26px;border-radius:30px;background:var(--card);border:1px solid var(--line);backdrop-filter:blur(18px);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.profile::before{content:"";position:absolute;inset:-40% -10% auto -10%;height:70%;background:radial-gradient(closest-side,color-mix(in srgb,var(--ac) 30%,transparent),transparent);opacity:.5;pointer-events:none}
+.avatar{position:relative;width:112px;height:112px;margin-bottom:16px}
+.avatar::before{content:"";position:absolute;inset:-5px;border-radius:50%;background:conic-gradient(from 0deg,#38bdf8,#a78bfa,#f472b6,#fbbf24,#34d399,#38bdf8);animation:spin 8s linear infinite;filter:blur(.3px)}
+.avatar img{position:relative;width:100%;height:100%;border-radius:50%;object-fit:cover;background:#1e293b;border:4px solid var(--bg2);display:block}
+.avatar .dot{position:absolute;right:6px;bottom:6px;width:20px;height:20px;border-radius:50%;background:var(--ok);border:3px solid var(--bg2);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 25%,transparent)}
+@keyframes spin{to{transform:rotate(360deg)}}
+h1{font-size:clamp(1.4rem,4.2vw,2rem);font-weight:800;letter-spacing:-.03em;line-height:1.2;position:relative}
+.bio{color:var(--mut);max-width:560px;margin:10px auto 18px;font-size:.96rem;position:relative}
+.stats{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.stat{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:999px;background:var(--card2);border:1px solid var(--line);font-size:.78rem;font-weight:700;color:var(--mut)}
+.stat svg{color:var(--ac)}
+/* daftar alat */
+.head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:30px 2px 14px}
+.head h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);font-weight:800;flex:1;min-width:150px;display:flex;align-items:center;gap:10px}
+.head h2::before{content:"";width:6px;height:18px;border-radius:3px;background:linear-gradient(var(--ac),#a78bfa)}
+.search{position:relative;flex:1 1 220px;max-width:340px}
+.search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--mut)}
+.search input{width:100%;padding:10px 14px 10px 40px;border-radius:13px;border:1.5px solid var(--line);background:var(--card2);color:var(--ink);font:inherit;font-size:.88rem}
+.search input:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 4px color-mix(in srgb,var(--ac) 20%,transparent)}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;width:100%}.chips::-webkit-scrollbar{display:none}
+.chips .btn{padding:7px 15px;border-radius:999px;flex:none}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr));gap:18px}
+.card{--c1:#38bdf8;--c2:#a78bfa;position:relative;display:flex;flex-direction:column;gap:16px;padding:22px;border-radius:26px;background:var(--card);border:1.5px solid var(--line);backdrop-filter:blur(16px);box-shadow:var(--shadow);overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;animation:rise .5s both}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,var(--c1),var(--c2))}
+.card::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--c1) 26%,transparent),transparent);pointer-events:none}
+.card:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--c1) 55%,transparent);box-shadow:0 36px 60px -26px color-mix(in srgb,var(--c1) 60%,#000)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+.ctop{display:flex;gap:16px;align-items:flex-start;position:relative}
+.ico{flex:none;width:58px;height:58px;border-radius:18px;display:grid;place-items:center;color:#fff;background:linear-gradient(140deg,var(--c1),var(--c2));box-shadow:0 14px 26px -12px var(--c1)}
+.ico svg{width:28px;height:28px}
+.card h3{font-size:1.18rem;font-weight:800;letter-spacing:-.02em;line-height:1.25}
+.card p{color:var(--mut);font-size:.88rem;margin-top:4px}
+.feats{display:flex;flex-wrap:wrap;gap:7px;list-style:none;position:relative}
+.feats li{font-size:.74rem;font-weight:700;padding:5px 11px;border-radius:999px;border:1px solid color-mix(in srgb,var(--c1) 34%,transparent);background:color-mix(in srgb,var(--c1) 12%,transparent)}
+.acts{display:flex;flex-wrap:wrap;gap:9px;position:relative}
+.acts .btn{flex:0 0 auto}
+.acts .grow{flex:1 1 130px}
+.meta{display:flex;gap:14px;flex-wrap:wrap;font-size:.74rem;color:var(--mut);font-weight:600;position:relative}
+.meta span{display:inline-flex;align-items:center;gap:5px}
+.empty{text-align:center;color:var(--mut);padding:40px 10px;display:none}
+.foot{max-width:1040px;margin:0 auto;padding:0 18px calc(34px + env(safe-area-inset-bottom,0px));text-align:center;color:var(--mut);font-size:.78rem}
+/* penampil */
+.ov{position:fixed;inset:0;z-index:100;display:none;flex-direction:column;background:var(--bg)}
+.ov.on{display:flex;animation:fade .2s both}
+@keyframes fade{from{opacity:0}}
+.vbar{display:flex;align-items:center;gap:10px;padding:calc(10px + env(safe-area-inset-top,0px)) 14px 10px;background:color-mix(in srgb,var(--bg2) 92%,transparent);border-bottom:1px solid var(--line);backdrop-filter:blur(14px);flex-wrap:wrap}
+.vt{display:flex;align-items:center;gap:10px;min-width:0;flex:1 1 180px}
+.vt .ico{width:36px;height:36px;border-radius:11px}.vt .ico svg{width:19px;height:19px}
+.vt b{font-size:.98rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.vt small{color:var(--mut);font-size:.72rem;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vt{order:1}.vact{display:flex;gap:8px;align-items:center;flex-wrap:wrap;order:2}#bClose{order:3}
+.vbody{position:relative;flex:1;min-height:0;display:flex;flex-direction:column}
+.frame{flex:1;width:100%;border:0;background:#fff}
+.vload{position:absolute;inset:0;display:none;place-items:center;background:var(--bg);z-index:2}
+.vload.on{display:grid}
+.spin{width:42px;height:42px;border-radius:50%;border:4px solid var(--line);border-top-color:var(--ac);animation:spin .8s linear infinite;margin:0 auto 12px}
+.vload p{color:var(--mut);font-size:.88rem;text-align:center}
+.code{display:none;flex:1;min-height:0;flex-direction:column;background:var(--code)}
+.code.on{display:flex}
+.ctools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 14px;background:var(--card2);border-bottom:1px solid var(--line)}
+.ctools .search{flex:1 1 200px;max-width:380px}.ctools .search input{padding:8px 12px 8px 38px;font-size:.84rem}
+.ctools .cnt{font-size:.76rem;color:var(--mut);font-weight:700;min-width:54px;text-align:center}
+.ctools .btn{padding:7px 12px;font-size:.78rem}.ctools .btn.icon{width:34px;height:34px}
+.cview{flex:1;min-height:0;overflow:auto;padding:10px 0 40px;font-family:"JetBrains Mono",Consolas,"Fira Code",monospace;font-size:var(--fs,13px);line-height:1.65;color:var(--codeink);tab-size:2;-webkit-overflow-scrolling:touch}
+.ln{display:flex;min-width:max-content}
+.cview.wr .ln{min-width:0}
+.ln i{flex:none;width:58px;padding-right:14px;text-align:right;color:var(--mut);opacity:.6;font-style:normal;user-select:none;-webkit-user-select:none;position:sticky;left:0;background:var(--code)}
+.ln code{white-space:pre;padding-right:20px;font:inherit}
+.cview.wr .ln code{white-space:pre-wrap;word-break:break-all}
+.ln.hit{background:color-mix(in srgb,#fbbf24 20%,transparent)}.ln.hit i{background:color-mix(in srgb,#fbbf24 28%,var(--code));opacity:1}
+.ln mark{background:#fbbf24;color:#111;border-radius:3px;padding:0 1px}
+.ln .t{color:#38bdf8}.ln .s{color:#a3e635}.ln .c{color:#64748b;font-style:italic}
+:root[data-theme="light"] .ln .t{color:#0369a1}:root[data-theme="light"] .ln .s{color:#4d7c0f}
+@media (prefers-color-scheme:light){:root[data-theme="auto"] .ln .t{color:#0369a1}:root[data-theme="auto"] .ln .s{color:#4d7c0f}}
+.more{margin:2px 0 2px 8px;padding:1px 9px;border-radius:7px;border:1px solid var(--line);background:var(--card2);color:var(--ac);font:inherit;font-size:.76em;cursor:pointer}
+.loadmore{display:block;margin:14px auto}
+.cmsg{padding:30px 20px;text-align:center;color:var(--mut)}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;font-weight:700;font-size:.85rem;z-index:300;transition:.25s;box-shadow:0 14px 30px -8px rgba(0,0,0,.5);max-width:92vw}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media (max-width:640px){
+ .vact .lbl,#bClose .lbl{display:none}.vact .btn,#bClose{padding:0;width:42px;height:42px;border-radius:12px}.vact .btn .chip,#bClose .chip{margin:0;background:none;box-shadow:none;color:inherit;width:auto;height:auto}
+ .vact .seg .btn{width:auto;padding:0 12px}.vact .seg .lbl{display:inline}
+ .vt{order:1;flex:1 1 0}#bClose{order:2}.vact{order:3;flex:1 1 100%;justify-content:space-between}
+ .vbar{gap:8px}
+ .acts .btn{flex:1 1 calc(50% - 6px)}.acts .btn.icon{flex:0 0 40px}
+ .card{padding:18px}
+}
+@media (max-width:460px){.vact .seg .lbl{display:none}.vact .seg .btn{width:44px;padding:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></symbol>
+<symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></symbol>
+<symbol id="i-ext" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+<symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></symbol>
+<symbol id="i-full" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></symbol>
+<symbol id="i-wrap" viewBox="0 0 24 24"><path d="M3 6h18M3 12h15a3 3 0 0 1 0 6h-4m0 0 2-2m-2 2 2 2M3 18h5"/></symbol>
+<symbol id="i-up" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></symbol>
+<symbol id="i-dn" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+<symbol id="i-auto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.2 8 8 9 4.8-1 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+</defs></svg>
+<div class="mesh"></div>
+
+<header class="bar">
+  <div class="seg" role="group" aria-label="Bahasa"><button class="btn on" id="langId" data-lang="id" style="--c:var(--ac)">ID</button><button class="btn" id="langEn" data-lang="en" style="--c:var(--ac)">EN</button></div>
+  <span class="sp"></span>
+  <button class="btn icon violet" id="themeBtn" data-i18n-title="theme" aria-label="Tema"><svg class="i"><use href="#i-auto"/></svg></button>
+</header>
+
+<main class="wrap">
+  <section class="profile">
+    <div class="avatar"><img id="profileImg" referrerpolicy="no-referrer" alt="Shin Von Reinhaver" width="112" height="112"><span class="dot" title="Online"></span></div>
+    <h1>Shin Von Reinhaver 「Шин」</h1>
+    <p class="bio" data-i18n="bio"></p>
+    <div class="stats">
+      <span class="stat"><svg class="i"><use href="#i-grid"/></svg><span id="statCount"></span></span>
+      <span class="stat"><svg class="i"><use href="#i-shield"/></svg><span data-i18n="stat2"></span></span>
+      <span class="stat"><svg class="i"><use href="#i-bolt"/></svg><span data-i18n="stat3"></span></span>
+    </div>
+  </section>
+
+  <div class="head">
+    <h2 data-i18n="sectionLabel"></h2>
+    <label class="search"><svg class="i"><use href="#i-search"/></svg><input type="search" id="q" data-i18n-ph="search" autocomplete="off" aria-label="Cari"></label>
+    <div class="chips" id="chips" role="group"></div>
+  </div>
+  <section class="cards" id="cards" aria-live="polite"></section>
+  <p class="empty" id="empty" data-i18n="empty"></p>
+</main>
+<footer class="foot"><span data-i18n="foot"></span></footer>
+
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="vTitle">
+  <div class="vbar">
+    <div class="vt"><span class="ico" id="vIco"></span><div style="min-width:0"><b id="vTitle"></b><small id="vSub"></small></div></div>
+    <div class="vact">
+      <div class="seg" role="group"><button class="btn on" id="mApp" style="--c:var(--ac)"><span class="chip"><svg class="i"><use href="#i-eye"/></svg></span><span class="lbl" data-i18n="btnPreview"></span></button><button class="btn" id="mCode" style="--c:#a78bfa"><span class="chip"><svg class="i"><use href="#i-code"/></svg></span><span class="lbl" data-i18n="btnCode"></span></button></div>
+      <button class="btn amber" id="bReload" data-i18n-title="reload"><span class="chip"><svg class="i"><use href="#i-refresh"/></svg></span><span class="lbl" data-i18n="reload"></span></button>
+      <button class="btn pink" id="bTab" data-i18n-title="newTab"><span class="chip"><svg class="i"><use href="#i-ext"/></svg></span><span class="lbl" data-i18n="newTab"></span></button>
+      <button class="btn violet" id="bFull" data-i18n-title="fullscreen"><span class="chip"><svg class="i"><use href="#i-full"/></svg></span><span class="lbl" data-i18n="fullscreen"></span></button>
+      <button class="btn ok" id="bDl" data-i18n-title="btnDownload"><span class="chip"><svg class="i"><use href="#i-down"/></svg></span><span class="lbl" data-i18n="btnDownload"></span></button>
+    </div>
+    <button class="btn danger" id="bClose" data-i18n-title="btnClose"><span class="chip"><svg class="i"><use href="#i-x"/></svg></span><span class="lbl" data-i18n="btnClose"></span></button>
+  </div>
+  <div class="vbody">
+    <iframe id="frame" class="frame" title="Aplikasi" allow="camera; microphone; clipboard-read; clipboard-write; fullscreen; web-share" allowfullscreen></iframe>
+    <div class="code" id="code">
+      <div class="ctools">
+        <label class="search"><svg class="i"><use href="#i-search"/></svg><input type="search" id="cq" data-i18n-ph="codeSearch" autocomplete="off" aria-label="Cari kode"></label>
+        <button class="btn icon" id="cPrev" aria-label="Sebelumnya"><svg class="i"><use href="#i-up"/></svg></button><span class="cnt" id="cCnt">0/0</span><button class="btn icon" id="cNext" aria-label="Berikutnya"><svg class="i"><use href="#i-dn"/></svg></button>
+        <button class="btn violet" id="cCopy"><span class="chip"><svg class="i"><use href="#i-copy"/></svg></span><span data-i18n="copy"></span></button>
+        <button class="btn pink" id="cWrap"><span class="chip"><svg class="i"><use href="#i-wrap"/></svg></span><span data-i18n="wrap"></span></button>
+        <button class="btn icon amber" id="cFm" aria-label="A-"><svg class="i"><use href="#i-minus"/></svg></button><button class="btn icon amber" id="cFp" aria-label="A+"><svg class="i"><use href="#i-plus"/></svg></button>
+      </div>
+      <div class="cview" id="cview" tabindex="0"></div>
+    </div>
+    <div class="vload on" id="vload"><div><div class="spin"></div><p id="vloadTxt"></p></div></div>
+  </div>
+</div>
+<input type="file" id="srcFile" accept=".html,.htm,text/html" hidden>
+<div id="toast" role="status"></div>
+
+<script>
+/* ============ daftar aplikasi: tambah alat baru cukup menambah satu objek ============ */
+const TOOLS=[
+ {id:'pdf-tools',file:'tools/pdf-tools.html',icon:'file',c1:'#14b8a6',c2:'#0ea5e9',tag:'pdf',
+  title:'PDF Tools',
+  desc:{id:'Editor PDF kertas kosong, edit teks PDF, gabung dan pisah, tanda tangan, OCR, serta cetak bolak-balik.',en:'Blank-paper PDF editor, PDF text editing, merge and split, signatures, OCR, and duplex printing.'},
+  feats:{id:['Editor PDF','Edit teks PDF','Cetak bolak-balik','Gabung dan pisah','Tanda tangan','OCR','Header dan footer','Sensor kata'],en:['PDF editor','Edit PDF text','Duplex printing','Merge and split','Signatures','OCR','Header and footer','Redact words']}},
+ {id:'image-tools',file:'tools/image-tools.html',icon:'image',c1:'#8b5cf6',c2:'#ec4899',tag:'image',
+  title:'Image Tools',
+  desc:{id:'Perbesar, perkecil, edit, dan kompres foto. Ada filter, coret, hapus latar, pas foto, kolase, dan OCR.',en:'Upscale, downscale, edit and compress photos. Filters, drawing, background removal, ID photos, collage, and OCR.'},
+  feats:{id:['Upscaler','Kompres ke KB','Filter','Hapus latar','Pas foto','Kolase','OCR','ZIP massal'],en:['Upscaler','Compress to KB','Filters','Remove background','ID photo','Collage','OCR','Batch ZIP']}}
+];
+const T={
+ id:{bio:'Koleksi aplikasi web mandiri, utilitas praktis, dan kode sumber HTML terbuka yang siap dipakai langsung dari browser.',sectionLabel:'Daftar Aplikasi & Kode',stat2:'Diproses di perangkat',stat3:'Tanpa instal',search:'Cari aplikasi…',codeSearch:'Cari di kode…',empty:'Tidak ada aplikasi yang cocok.',foot:'Semua alat berjalan di browser Anda. Berkas tidak diunggah ke server.',all:'Semua',pdf:'PDF',image:'Gambar',
+  open:'Buka',code:'Kode',download:'Unduh',newTab:'Tab baru',btnPreview:'Tampilan',btnCode:'Kode HTML',btnDownload:'Unduh HTML',btnClose:'Tutup',reload:'Muat ulang',fullscreen:'Layar penuh',theme:'Ganti tema',copy:'Salin',wrap:'Bungkus',
+  loadingApp:'Membuka aplikasi…',loadingCode:'Memuat kode sumber…',codeFail:'Kode sumber tidak bisa dibaca dari sini. Buka lewat server (Netlify, GitHub Pages, atau localhost) atau pakai tombol Tab baru.',copied:'Kode disalin.',copyFail:'Gagal menyalin.',pick:'Pilih berkas HTML untuk dilihat',downloaded:'Terunduh',more:'Muat lebih banyak',cut:'+{n} karakter',apps:'{n} aplikasi',lines:'{n} baris',size:'Ukuran'},
+ en:{bio:'A curated collection of standalone web apps, practical utilities, and open HTML source code ready to run right in your browser.',sectionLabel:'Applications & Source Code',stat2:'Runs on your device',stat3:'No install',search:'Search apps…',codeSearch:'Search in code…',empty:'No matching apps.',foot:'Every tool runs in your browser. Files are never uploaded to a server.',all:'All',pdf:'PDF',image:'Image',
+  open:'Open',code:'Code',download:'Download',newTab:'New tab',btnPreview:'Preview',btnCode:'HTML Code',btnDownload:'Download HTML',btnClose:'Close',reload:'Reload',fullscreen:'Fullscreen',theme:'Change theme',copy:'Copy',wrap:'Wrap',
+  loadingApp:'Opening app…',loadingCode:'Loading source code…',codeFail:'The source cannot be read from here. Open it through a server (Netlify, GitHub Pages, or localhost) or use the New tab button.',copied:'Code copied.',copyFail:'Copy failed.',pick:'Choose the HTML file to view',downloaded:'Downloaded',more:'Load more',cut:'+{n} characters',apps:'{n} apps',lines:'{n} lines',size:'Size'}};
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ico=n=>'<svg class="i"><use href="#i-'+n+'"/></svg>';
+const store={get(k,d){try{return localStorage.getItem(k)||d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+let lang=store.get('sv-lang',(navigator.language||'id').startsWith('id')?'id':'en'),theme=store.get('sv-theme','auto'),filter='all',cur=null,SRC=null;
+const t=k=>(T[lang][k]!==undefined?T[lang][k]:k);
+let tt;function toast(m){const e=$('#toast');e.textContent=m;e.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('on'),2400)}
+
+/* ---------- tema & bahasa ---------- */
+const THEME_ICON={auto:'auto',dark:'moon',light:'sun'};
+function applyTheme(){document.documentElement.dataset.theme=theme;$('#themeBtn').innerHTML=ico(THEME_ICON[theme]);const dark=theme==='dark'||(theme==='auto'&&!matchMedia('(prefers-color-scheme:light)').matches);$('meta[name=theme-color]').content=dark?'#090d16':'#f3f6fb'}
+$('#themeBtn').onclick=()=>{theme={auto:'dark',dark:'light',light:'auto'}[theme];store.set('sv-theme',theme);applyTheme();toast({auto:'Auto',dark:lang==='id'?'Gelap':'Dark',light:lang==='id'?'Terang':'Light'}[theme])};
+function applyLang(){document.documentElement.lang=lang;$$('[data-lang]').forEach(b=>b.classList.toggle('on',b.dataset.lang===lang));
+ $$('[data-i18n]').forEach(e=>e.textContent=t(e.dataset.i18n));$$('[data-i18n-ph]').forEach(e=>e.placeholder=t(e.dataset.i18nPh));$$('[data-i18n-title]').forEach(e=>{e.title=t(e.dataset.i18nTitle);e.setAttribute('aria-label',t(e.dataset.i18nTitle))});
+ $('#statCount').textContent=t('apps').replace('{n}',TOOLS.length);renderChips();renderCards();if(SRC)renderCodeHead()}
+$$('[data-lang]').forEach(b=>b.onclick=()=>{lang=b.dataset.lang;store.set('sv-lang',lang);applyLang()});
+
+/* ---------- avatar dengan cadangan ---------- */
+const img=$('#profileImg');
+const fallback='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 112"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs><rect width="112" height="112" fill="url(#g)"/><text x="56" y="73" text-anchor="middle" font-family="sans-serif" font-size="52" font-weight="800" fill="#fff">S</text></svg>');
+const srcs=['media/images.jpeg','media/images/images.jpeg','media/images.jpg','media/images.png','https://images.weserv.nl/?url=img.sanishtech.com/u/0a94ea50a3a7b12c8b75569dde098fe5.jpg&output=jpg',fallback];let si=0;
+img.onerror=()=>{si++;if(si<srcs.length)img.src=srcs[si];else img.onerror=null};img.src=srcs[0];
+
+/* ---------- daftar kartu ---------- */
+function renderChips(){const tags=[['all',t('all')]].concat([...new Set(TOOLS.map(x=>x.tag))].map(g=>[g,t(g)]));$('#chips').innerHTML=tags.map(([k,l])=>'<button class="btn'+(filter===k?' on':'')+'" data-f="'+k+'">'+esc(l)+'</button>').join('')}
+$('#chips').onclick=e=>{const b=e.target.closest('[data-f]');if(b){filter=b.dataset.f;renderChips();renderCards()}};
+$('#q').oninput=()=>renderCards();
+function renderCards(){const q=$('#q').value.trim().toLowerCase();
+ const L=TOOLS.filter(x=>(filter==='all'||x.tag===filter)&&(!q||(x.title+' '+x.desc[lang]+' '+x.feats[lang].join(' ')).toLowerCase().includes(q)));
+ $('#empty').style.display=L.length?'none':'block';
+ $('#cards').innerHTML=L.map((x,i)=>'<article class="card" style="--c1:'+x.c1+';--c2:'+x.c2+';animation-delay:'+i*70+'ms"><div class="ctop"><span class="ico">'+ico(x.icon)+'</span><div><h3>'+esc(x.title)+'</h3><p>'+esc(x.desc[lang])+'</p></div></div>'
+  +'<ul class="feats">'+x.feats[lang].map(f=>'<li>'+esc(f)+'</li>').join('')+'</ul>'
+  +'<div class="acts"><button class="btn primary grow" data-a="open" data-id="'+x.id+'"><span class="chip">'+ico('eye')+'</span>'+t('open')+'</button><button class="btn violet" data-a="code" data-id="'+x.id+'"><span class="chip">'+ico('code')+'</span>'+t('code')+'</button><button class="btn ok" data-a="dl" data-id="'+x.id+'"><span class="chip">'+ico('down')+'</span>'+t('download')+'</button><a class="btn icon pink" href="'+x.file+'" target="_blank" rel="noopener" aria-label="'+t('newTab')+'" title="'+t('newTab')+'">'+ico('ext')+'</a></div>'
+  +'<div class="meta"><span>'+ico('file')+'<span data-size="'+x.id+'">'+(SIZES[x.id]||'…')+'</span></span><span>'+ico('shield')+t('stat2')+'</span></div></article>').join('');loadSizes()}
+$('#cards').onclick=e=>{const b=e.target.closest('[data-a]');if(!b)return;const x=TOOLS.find(y=>y.id===b.dataset.id);if(b.dataset.a==='open')openApp(x,'app');else if(b.dataset.a==='code')openApp(x,'code');else if(b.dataset.a==='dl')downloadSrc(x)};
+const SIZES={};const fmtB=n=>n>1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB';
+function loadSizes(){TOOLS.forEach(x=>{if(SIZES[x.id])return;fetch(x.file,{method:'HEAD'}).then(r=>{const n=+r.headers.get('content-length');if(n){SIZES[x.id]=fmtB(n);$$('[data-size="'+x.id+'"]').forEach(e=>e.textContent=SIZES[x.id])}}).catch(()=>{})})}
+
+/* ---------- penampil ---------- */
+const frame=$('#frame');let loadT=0;
+function setLoad(on,txt){$('#vload').classList.toggle('on',on);if(txt)$('#vloadTxt').textContent=txt}
+function openApp(x,mode,noPush){cur=x;SRC=null;$('#vTitle').textContent=x.title;$('#vSub').textContent=x.file;$('#vIco').style.cssText='--c1:'+x.c1+';--c2:'+x.c2;$('#vIco').className='ico';$('#vIco').innerHTML=ico(x.icon);
+ document.body.classList.add('lock');$('#ov').classList.add('on');
+ if(!noPush)try{history.pushState({app:x.id},'','#'+x.id)}catch(e){}
+ setMode(mode,true);setTimeout(()=>$('#bClose').focus(),50)}
+function setMode(mode,first){const app=mode==='app';$('#mApp').classList.toggle('on',app);$('#mCode').classList.toggle('on',!app);$('#frame').style.display=app?'block':'none';$('#code').classList.toggle('on',!app);$('#bDl').style.display=app?'none':'';$('#bReload').style.display=app?'':'none';
+ if(app){if(first||!frame.src||frame.src==='about:blank'||frame.dataset.id!==cur.id){setLoad(true,t('loadingApp'));frame.dataset.id=cur.id;frame.onload=()=>{setLoad(false)};frame.src=cur.file;clearTimeout(loadT);loadT=setTimeout(()=>setLoad(false),6000)}else setLoad(false)}
+ else{if(SRC&&SRC.id===cur.id)setLoad(false);else loadSource(cur)}}
+$('#mApp').onclick=()=>setMode('app');$('#mCode').onclick=()=>setMode('code');
+function closeApp(fromPop){document.body.classList.remove('lock');$('#ov').classList.remove('on');frame.onload=null;frame.src='about:blank';frame.dataset.id='';cur=null;SRC=null;if(document.fullscreenElement)document.exitFullscreen&&document.exitFullscreen();if(!fromPop&&location.hash)try{history.back()}catch(e){}}
+$('#bClose').onclick=()=>closeApp(false);
+addEventListener('popstate',()=>{if($('#ov').classList.contains('on')&&!location.hash)closeApp(true);else routeHash()});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#ov').classList.contains('on')&&!document.fullscreenElement)closeApp(false)});
+function routeHash(){const id=location.hash.slice(1),x=TOOLS.find(y=>y.id===id);if(x&&!$('#ov').classList.contains('on'))openApp(x,'app',true)}
+$('#bReload').onclick=()=>{setLoad(true,t('loadingApp'));frame.onload=()=>setLoad(false);frame.src=cur.file};
+$('#bTab').onclick=()=>window.open(cur.file,'_blank','noopener');
+$('#bFull').onclick=()=>{const o=$('#ov');if(document.fullscreenElement)document.exitFullscreen();else if(o.requestFullscreen)o.requestFullscreen().catch(()=>toast('Fullscreen tidak didukung'));else toast('Fullscreen tidak didukung')};
+$('#bDl').onclick=()=>downloadSrc(cur);
+
+/* ---------- sumber kode ---------- */
+async function fetchSource(x){try{const r=await fetch(x.file);if(r.ok)return await r.text()}catch(e){}
+ return await new Promise(res=>{try{const f=document.createElement('iframe');f.style.display='none';f.onload=()=>{try{res('<!DOCTYPE html>\n'+f.contentDocument.documentElement.outerHTML)}catch(e){res(null)}f.remove()};f.onerror=()=>{res(null);f.remove()};f.src=x.file;document.body.appendChild(f);setTimeout(()=>res(null),8000)}catch(e){res(null)}})}
+async function loadSource(x){setLoad(true,t('loadingCode'));$('#cview').innerHTML='';const text=await fetchSource(x);if(!cur||cur.id!==x.id)return;setLoad(false);
+ if(text==null){SRC=null;$('#cview').innerHTML='<div class="cmsg"><p>'+esc(t('codeFail'))+'</p><p style="margin-top:14px"><button class="btn violet" id="pickSrc"><span class="chip">'+ico('file')+'</span>'+esc(t('pick'))+'</button></p></div>';$('#pickSrc').onclick=()=>$('#srcFile').click();return}
+ SRC={id:x.id,text,lines:text.split('\n'),shown:0,hits:[],hi:-1,term:''};renderCodeHead();$('#cview').innerHTML='';renderMore(300)}
+$('#srcFile').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f||!cur)return;const text=await f.text();SRC={id:cur.id,text,lines:text.split('\n'),shown:0,hits:[],hi:-1,term:''};renderCodeHead();$('#cview').innerHTML='';renderMore(300)};
+function renderCodeHead(){if(!SRC)return;$('#vSub').textContent=cur?cur.file+' · '+t('lines').replace('{n}',SRC.lines.length.toLocaleString())+' · '+fmtB(new Blob([SRC.text]).size):''}
+const LIM=1400;
+function lineHtml(n,raw,term){const cut=raw.length>LIM,s=cut?raw.slice(0,LIM):raw;let h=esc(s);
+ if(s.length<=500){h=h.replace(/(&lt;!--.*?--&gt;)/g,'<span class="c">$1</span>').replace(/(&lt;\/?)([a-zA-Z][\w-]*)/g,'$1<span class="t">$2</span>').replace(/(&quot;[^&]*?&quot;)/g,'<span class="s">$1</span>')}
+ if(term){const re=new RegExp(esc(term).replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');h=h.replace(/(<[^>]*>)|([^<]+)/g,(m,tag,txt)=>tag?tag:txt.replace(re,x=>'<mark>'+x+'</mark>'))}
+ return '<div class="ln" id="L'+n+'"><i>'+(n+1)+'</i><code>'+h+'</code>'+(cut?'<button class="more" data-n="'+n+'">'+esc(t('cut').replace('{n}',(raw.length-LIM).toLocaleString()))+'</button>':'')+'</div>'}
+function renderMore(k){if(!SRC)return;const v=$('#cview'),old=v.querySelector('.loadmore');if(old)old.remove();let h='';const end=Math.min(SRC.lines.length,SRC.shown+k);for(let n=SRC.shown;n<end;n++)h+=lineHtml(n,SRC.lines[n],'');SRC.shown=end;v.insertAdjacentHTML('beforeend',h);
+ if(SRC.shown<SRC.lines.length){v.insertAdjacentHTML('beforeend','<button class="btn loadmore" id="lm">'+esc(t('more'))+' ('+(SRC.lines.length-SRC.shown).toLocaleString()+')</button>');obs.observe($('#lm'))}}
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){obs.unobserve(e.target);renderMore(400)}})},{root:null,rootMargin:'600px'});
+$('#cview').onclick=e=>{const b=e.target.closest('.more');if(b){const n=+b.dataset.n,ln=b.parentNode;ln.querySelector('code').innerHTML=esc(SRC.lines[n]);b.remove()}const l=e.target.closest('#lm');if(l)renderMore(500)};
+let sT=0;$('#cq').oninput=()=>{clearTimeout(sT);sT=setTimeout(doSearch,200)};
+function doSearch(){if(!SRC)return;const term=$('#cq').value;if(SRC.prev!=null)replaceLine(SRC.prev,'');SRC.prev=null;SRC.term=term;SRC.hits=[];SRC.hi=-1;if(term.length<2){$('#cCnt').textContent='0/0';return}const lo=term.toLowerCase();SRC.lines.forEach((l,i)=>{if(l.toLowerCase().includes(lo))SRC.hits.push(i)});$('#cCnt').textContent=SRC.hits.length?'0/'+SRC.hits.length:'0/0';if(SRC.hits.length)goHit(1)}
+function replaceLine(n,term){const el=$('#L'+n);if(el)el.outerHTML=lineHtml(n,SRC.lines[n],term)}
+function goHit(d){if(!SRC||!SRC.hits.length)return;SRC.hi=(SRC.hi+d+SRC.hits.length)%SRC.hits.length;const n=SRC.hits[SRC.hi];if(SRC.prev!=null)replaceLine(SRC.prev,'');if(n>=SRC.shown)renderMore(n-SRC.shown+60);replaceLine(n,SRC.term);const e=$('#L'+n);if(!e)return;e.classList.add('hit');SRC.prev=n;e.scrollIntoView({block:'center'});$('#cCnt').textContent=(SRC.hi+1)+'/'+SRC.hits.length}
+$('#cNext').onclick=()=>goHit(1);$('#cPrev').onclick=()=>goHit(-1);$('#cq').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();goHit(e.shiftKey?-1:1)}};
+$('#cCopy').onclick=async()=>{if(!SRC)return;try{await navigator.clipboard.writeText(SRC.text);toast(t('copied'))}catch(e){try{const a=document.createElement('textarea');a.value=SRC.text;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();toast(t('copied'))}catch(x){toast(t('copyFail'))}}};
+$('#cWrap').onclick=()=>{$('#cview').classList.toggle('wr');$('#cWrap').classList.toggle('on')};
+let fs=13;const setFs=d=>{fs=Math.max(9,Math.min(24,fs+d));$('#cview').style.setProperty('--fs',fs+'px')};$('#cFm').onclick=()=>setFs(-1);$('#cFp').onclick=()=>setFs(1);
+async function downloadSrc(x){const text=(SRC&&SRC.id===x.id)?SRC.text:await fetchSource(x);if(text==null){toast(t('codeFail'));return}
+ const blob=new Blob([text],{type:'text/html;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=x.file.split('/').pop();document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),6000);toast(t('downloaded')+': '+a.download)}
+
+applyTheme();applyLang();routeHash();
+</script>
+</body>
+</html>
