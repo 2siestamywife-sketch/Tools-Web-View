@@ -237,16 +237,16 @@ const TOOLS=[
   feats:{id:['Editor PDF','Edit teks PDF','Cetak bolak-balik','Gabung dan pisah','Tanda tangan','OCR','Header dan footer','Sensor kata'],en:['PDF editor','Edit PDF text','Duplex printing','Merge and split','Signatures','OCR','Header and footer','Redact words']}},
  {id:'image-tools',file:'tools/image-tools.html',icon:'image',c1:'#8b5cf6',c2:'#ec4899',tag:'image',min:40000,
   title:'Image Tools',
-  desc:{id:'Perbesar, perkecil, edit, dan kompres foto. Ada filter, coret, hapus latar, pas foto, kolase, dan OCR.',en:'Upscale, downscale, edit and compress photos. Filters, drawing, background removal, ID photos, collage, and OCR.'},
-  feats:{id:['Upscaler','Kompres ke KB','Filter','Hapus latar','Pas foto','Kolase','OCR','ZIP massal'],en:['Upscaler','Compress to KB','Filters','Remove background','ID photo','Collage','OCR','Batch ZIP']}}
+  desc:{id:'Perbesar, perkecil, dan edit foto. Ada filter, coret, hapus latar, pas foto, kolase, dan OCR.',en:'Upscale, downscale and edit photos. Filters, drawing, background removal, ID photos, collage, and OCR.'},
+  feats:{id:['Upscaler','Filter','Hapus latar','Pas foto','Kolase','OCR','ZIP massal'],en:['Upscaler','Filters','Remove background','ID photo','Collage','OCR','Batch ZIP']}}
 ];
 const T={
  id:{bio:'Koleksi aplikasi web mandiri, utilitas praktis, dan kode sumber HTML terbuka yang siap dipakai langsung dari browser.',sectionLabel:'Daftar Aplikasi & Kode',stat2:'Diproses di perangkat',stat3:'Tanpa instal',search:'Cari aplikasi…',codeSearch:'Cari di kode…',empty:'Tidak ada aplikasi yang cocok.',foot:'Semua alat berjalan di browser Anda. Berkas tidak diunggah ke server.',all:'Semua',pdf:'PDF',image:'Gambar',
   open:'Buka',code:'Kode',download:'Unduh',newTab:'Tab baru',btnPreview:'Tampilan',btnCode:'Kode HTML',btnDownload:'Unduh HTML',btnClose:'Tutup',reload:'Muat ulang',fullscreen:'Layar penuh',theme:'Ganti tema',copy:'Salin',wrap:'Bungkus',
-  dTitle:'Berkas aplikasi bermasalah',dNotFound:'Berkas tidak ditemukan di server (404). Pastikan struktur folder: index.html, tools/pdf-tools.html, tools/image-tools.html, dan nama berkas persis sama (huruf besar kecil berpengaruh).',dNet:'Tidak bisa membaca berkas dari sini (kemungkinan dibuka langsung dari penyimpanan atau tidak ada internet). Buka lewat server atau pilih berkas lokal.',dSmall:'Berkas di server hanya {n}, padahal seharusnya sekitar {m} atau lebih. Kemungkinan upload gagal atau terpotong. Upload ulang berkas lengkapnya.',dLfs:'Berkas ini hanya penunjuk Git LFS, bukan isinya. Upload ulang sebagai berkas biasa.',dPreview:'Lihat isi berkas di server',retry:'Coba lagi',force:'Tetap muat',compressed:'terkompres',compressedHint:'Ukuran yang dikirim lewat jaringan (gzip). Ukuran asli tampil setelah aplikasi dibuka.',loadingApp:'Membuka aplikasi…',loadingCode:'Memuat kode sumber…',codeFail:'Kode sumber tidak bisa dibaca dari sini. Buka lewat server (Netlify, GitHub Pages, atau localhost) atau pakai tombol Tab baru.',copied:'Kode disalin.',copyFail:'Gagal menyalin.',pick:'Pilih berkas HTML untuk dilihat',downloaded:'Terunduh',more:'Muat lebih banyak',cut:'+{n} karakter',apps:'{n} aplikasi',lines:'{n} baris',size:'Ukuran'},
+  dTitle:'Berkas aplikasi bermasalah',dInvalid:'Berkas {f} ada di server, tetapi isinya bukan HTML lengkap (hanya {n}). Kemungkinan terpotong atau rusak saat diunggah. Unggah ulang berkas aslinya yang utuh. Baris 404 di bawah hanyalah jalur cadangan yang dicoba otomatis.',dNotFound:'Berkas tidak ditemukan di server (404). Pastikan struktur folder: index.html, tools/pdf-tools.html, tools/image-tools.html, dan nama berkas persis sama (huruf besar kecil berpengaruh).',dNet:'Tidak bisa membaca berkas dari sini (kemungkinan dibuka langsung dari penyimpanan atau tidak ada internet). Buka lewat server atau pilih berkas lokal.',dSmall:'Berkas di server hanya {n}, padahal seharusnya sekitar {m} atau lebih. Kemungkinan upload gagal atau terpotong. Upload ulang berkas lengkapnya.',dLfs:'Berkas ini hanya penunjuk Git LFS, bukan isinya. Upload ulang sebagai berkas biasa.',dPreview:'Lihat isi berkas di server',retry:'Coba lagi',force:'Tetap muat',loadingApp:'Membuka aplikasi…',loadingCode:'Memuat kode sumber…',codeFail:'Kode sumber tidak bisa dibaca dari sini. Buka lewat server (Netlify, GitHub Pages, atau localhost) atau pakai tombol Tab baru.',copied:'Kode disalin.',copyFail:'Gagal menyalin.',pick:'Pilih berkas HTML untuk dilihat',downloaded:'Terunduh',tidying:'Merapikan kode…',tidied:'kode dirapikan',notTidied:'kode asli (tidak bisa dirapikan dengan aman)',more:'Muat lebih banyak',cut:'+{n} karakter',apps:'{n} aplikasi',lines:'{n} baris',size:'Ukuran'},
  en:{bio:'A curated collection of standalone web apps, practical utilities, and open HTML source code ready to run right in your browser.',sectionLabel:'Applications & Source Code',stat2:'Runs on your device',stat3:'No install',search:'Search apps…',codeSearch:'Search in code…',empty:'No matching apps.',foot:'Every tool runs in your browser. Files are never uploaded to a server.',all:'All',pdf:'PDF',image:'Image',
   open:'Open',code:'Code',download:'Download',newTab:'New tab',btnPreview:'Preview',btnCode:'HTML Code',btnDownload:'Download HTML',btnClose:'Close',reload:'Reload',fullscreen:'Fullscreen',theme:'Change theme',copy:'Copy',wrap:'Wrap',
-  dTitle:'Problem with the app file',dNotFound:'The file was not found on the server (404). Make sure the folders are: index.html, tools/pdf-tools.html, tools/image-tools.html, with the exact same names (case matters).',dNet:'The file cannot be read from here (probably opened straight from storage, or offline). Open it through a server or choose a local file.',dSmall:'The file on the server is only {n}, while it should be about {m} or more. The upload probably failed or was truncated. Upload the complete file again.',dLfs:'This file is only a Git LFS pointer, not the real content. Re-upload it as a normal file.',dPreview:'View the file on the server',retry:'Retry',force:'Load anyway',compressed:'compressed',compressedHint:'Size sent over the network (gzip). The real size shows once the app is opened.',loadingApp:'Opening app…',loadingCode:'Loading source code…',codeFail:'The source cannot be read from here. Open it through a server (Netlify, GitHub Pages, or localhost) or use the New tab button.',copied:'Code copied.',copyFail:'Copy failed.',pick:'Choose the HTML file to view',downloaded:'Downloaded',more:'Load more',cut:'+{n} characters',apps:'{n} apps',lines:'{n} lines',size:'Size'}};
+  dTitle:'Problem with the app file',dInvalid:'The file {f} exists on the server, but its content is not a complete HTML page (only {n}). It was probably truncated or corrupted during upload. Upload the original complete file again. The 404 rows below are just fallback paths tried automatically.',dNotFound:'The file was not found on the server (404). Make sure the folders are: index.html, tools/pdf-tools.html, tools/image-tools.html, with the exact same names (case matters).',dNet:'The file cannot be read from here (probably opened straight from storage, or offline). Open it through a server or choose a local file.',dSmall:'The file on the server is only {n}, while it should be about {m} or more. The upload probably failed or was truncated. Upload the complete file again.',dLfs:'This file is only a Git LFS pointer, not the real content. Re-upload it as a normal file.',dPreview:'View the file on the server',retry:'Retry',force:'Load anyway',loadingApp:'Opening app…',loadingCode:'Loading source code…',codeFail:'The source cannot be read from here. Open it through a server (Netlify, GitHub Pages, or localhost) or use the New tab button.',copied:'Code copied.',copyFail:'Copy failed.',pick:'Choose the HTML file to view',downloaded:'Downloaded',tidying:'Tidying code…',tidied:'code tidied',notTidied:'original code (could not be tidied safely)',more:'Load more',cut:'+{n} characters',apps:'{n} apps',lines:'{n} lines',size:'Size'}};
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const ico=n=>'<svg class="i"><use href="#i-'+n+'"/></svg>';
@@ -267,7 +267,7 @@ $$('[data-lang]').forEach(b=>b.onclick=()=>{lang=b.dataset.lang;store.set('sv-la
 /* ---------- avatar dengan cadangan ---------- */
 const img=$('#profileImg');
 const fallback='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 112"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs><rect width="112" height="112" fill="url(#g)"/><text x="56" y="73" text-anchor="middle" font-family="sans-serif" font-size="52" font-weight="800" fill="#fff">S</text></svg>');
-const srcs=['media/images.jpeg','media/images/images.jpeg','https://images.weserv.nl/?url=img.sanishtech.com/u/0a94ea50a3a7b12c8b75569dde098fe5.jpg&output=jpg',fallback];let si=0;
+const srcs=['media/images.jpeg','media/images/images.jpeg','media/images.jpg','media/images.png','https://images.weserv.nl/?url=img.sanishtech.com/u/0a94ea50a3a7b12c8b75569dde098fe5.jpg&output=jpg',fallback];let si=0;
 img.onerror=()=>{si++;if(si<srcs.length)img.src=srcs[si];else img.onerror=null};img.src=srcs[0];
 
 /* ---------- daftar kartu ---------- */
@@ -283,9 +283,9 @@ function renderCards(){const q=$('#q').value.trim().toLowerCase();
   +'<div class="meta"><span>'+ico('file')+'<span data-size="'+x.id+'">'+sizeLabel(x.id)+'</span></span><span>'+ico('shield')+t('stat2')+'</span></div></article>').join('');loadSizes()}
 $('#cards').onclick=e=>{const b=e.target.closest('[data-a]');if(!b)return;const x=TOOLS.find(y=>y.id===b.dataset.id);if(b.dataset.a==='open')openApp(x,'app');else if(b.dataset.a==='code')openApp(x,'code');else if(b.dataset.a==='dl')downloadSrc(x)};
 const SIZES={};const fmtB=n=>n>1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB';
-function sizeLabel(id){const z=SIZES[id];if(!z)return '…';if(z.real)return fmtB(z.real);return z.enc?'≈ '+fmtB(z.n)+' ('+t('compressed')+')':fmtB(z.n)}
-function paintSizes(){$$('[data-size]').forEach(e=>{e.textContent=sizeLabel(e.dataset.size);e.title=SIZES[e.dataset.size]&&!SIZES[e.dataset.size].real&&SIZES[e.dataset.size].enc?t('compressedHint'):''})}
-function loadSizes(){TOOLS.forEach(x=>{if(SIZES[x.id])return;fetch(x.file,{method:'HEAD'}).then(r=>{const n=+r.headers.get('content-length');if(n){SIZES[x.id]={n,enc:!!r.headers.get('content-encoding')};paintSizes()}}).catch(()=>{})})}
+function sizeLabel(id){const z=SIZES[id];if(!z)return '…';return fmtB(z.real||z.n)}
+function paintSizes(){$$('[data-size]').forEach(e=>{e.textContent=sizeLabel(e.dataset.size)})}
+function loadSizes(){TOOLS.forEach(x=>{if(SIZES[x.id])return;fetch(x.file,{method:'HEAD'}).then(r=>{const n=+r.headers.get('content-length');if(n&&!r.headers.get('content-encoding')){SIZES[x.id]={n};paintSizes()}}).catch(()=>{})})}
 
 /* ---------- penampil: cek berkas dulu, baru tampilkan ---------- */
 const frame=$('#frame');let loadT=0,tok=0,pushed=false;
@@ -296,16 +296,17 @@ function setLoad(on,txt){$('#vload').classList.toggle('on',on);if(txt)$('#vloadT
 const looksHtml=s=>/<!doctype html|<html|<head|<body/i.test(s.slice(0,4000));
 /* mencoba beberapa kemungkinan path, memilih berkas HTML terbesar yang valid */
 async function probe(x,force){const old=PROBE[x.id];if(old&&!force&&(old.local||old.text||old.problem))return old;
- const base=x.file.split('/').pop(),cands=[...new Set([x.file,'tools/'+base,base,'../tools/'+base,'file/tools/'+base])],tried=[],ok=[];
- for(const u of cands){try{const r=await fetch(u+(force?(u.includes('?')?'&':'?')+'v='+Date.now():''),{cache:'no-store'});let text='';if(r.ok)text=await r.text();tried.push({u,status:r.status,bytes:text.length});if(r.ok&&looksHtml(text)){ok.push({u,text});if(text.length>=x.min)break}}catch(e){tried.push({u,status:0,bytes:0})}}
+ const base=x.file.split('/').pop(),cands=[...new Set([x.file,'tools/'+base,base,'../tools/'+base,'file/tools/'+base])],tried=[],ok=[],bad=[];
+ for(const u of cands){try{const r=await fetch(u+(force?(u.includes('?')?'&':'?')+'v='+Date.now():''),{cache:'no-store'});let text='';if(r.ok)text=await r.text();tried.push({u,status:r.status,bytes:text.length});if(r.ok&&looksHtml(text)){ok.push({u,text});if(text.length>=x.min)break}else if(r.ok&&text)bad.push({u,text})}catch(e){tried.push({u,status:0,bytes:0})}}
  const res={tried,url:null,text:null,bytes:0,problem:null};
  if(ok.length){ok.sort((p,q)=>q.text.length-p.text.length);const w=ok[0];res.url=w.u;res.text=w.text;res.bytes=new Blob([w.text]).size;if(/^version https:\/\/git-lfs/.test(w.text))res.problem='lfs';else if(w.text.length<x.min)res.problem='small'}
+ else if(bad.length){bad.sort((p,q)=>q.text.length-p.text.length);const w=bad[0];res.url=w.u;res.text=w.text;res.bytes=new Blob([w.text]).size;res.problem=/^version https:\/\/git-lfs/.test(w.text)?'lfs':'invalid'}
  else res.problem=tried.every(a=>a.status===0)?'network':'notfound';
  PROBE[x.id]=res;if(res.bytes){SIZES[x.id]=Object.assign(SIZES[x.id]||{n:res.bytes},{real:res.bytes});paintSizes()}return res}
-function diagMsg(x,r){return({notfound:t('dNotFound'),network:t('dNet'),small:t('dSmall').replace('{n}',fmtB(r.bytes||0)).replace('{m}',fmtB(x.min)),lfs:t('dLfs')})[r.problem]||''}
+function diagMsg(x,r){return({notfound:t('dNotFound'),network:t('dNet'),invalid:t('dInvalid').replace('{f}',x.file).replace('{n}',fmtB(r.bytes||0)),small:t('dSmall').replace('{n}',fmtB(r.bytes||0)).replace('{m}',fmtB(x.min)),lfs:t('dLfs')})[r.problem]||''}
 function diagHtml(x,r){const rows=r.tried.map(a=>'<li><code>'+esc(a.u)+'</code> <b class="'+(a.status===200?'okc':'badc')+'">'+(a.status||'error')+'</b>'+(a.bytes?' · '+fmtB(a.bytes):'')+'</li>').join('');
  return '<div class="diag"><div class="dico">!</div><h3>'+esc(t('dTitle'))+'</h3><p>'+esc(diagMsg(x,r))+'</p><ul>'+rows+'</ul>'+(r.text?'<details><summary>'+esc(t('dPreview'))+'</summary><pre>'+esc(r.text.slice(0,700))+'</pre></details>':'')
-  +'<div class="dact"><button class="btn amber" data-d="retry"><span class="chip">'+ico('refresh')+'</span>'+esc(t('retry'))+'</button>'+(r.text?'<button class="btn violet" data-d="force"><span class="chip">'+ico('eye')+'</span>'+esc(t('force'))+'</button>':'')+'<button class="btn pink" data-d="tab"><span class="chip">'+ico('ext')+'</span>'+esc(t('newTab'))+'</button><button class="btn ok" data-d="pick"><span class="chip">'+ico('file')+'</span>'+esc(t('pick'))+'</button></div></div>'}
+  +'<div class="dact"><button class="btn amber" data-d="retry"><span class="chip">'+ico('refresh')+'</span>'+esc(t('retry'))+'</button>'+(r.text&&r.problem!=='invalid'&&r.problem!=='lfs'?'<button class="btn violet" data-d="force"><span class="chip">'+ico('eye')+'</span>'+esc(t('force'))+'</button>':'')+'<button class="btn pink" data-d="tab"><span class="chip">'+ico('ext')+'</span>'+esc(t('newTab'))+'</button><button class="btn ok" data-d="pick"><span class="chip">'+ico('file')+'</span>'+esc(t('pick'))+'</button></div></div>'}
 function openApp(x,mode,noPush){cur=x;SRC=null;tok++;$('#vTitle').textContent=x.title;$('#vSub').textContent=x.file;$('#vIco').style.cssText='--c1:'+x.c1+';--c2:'+x.c2;$('#vIco').className='ico';$('#vIco').innerHTML=ico(x.icon);
  document.body.classList.add('lock');$('#ov').classList.add('on');frame.dataset.id='';
  pushed=false;if(!noPush)try{history.pushState({app:x.id},'','#'+x.id);pushed=true}catch(e){}
@@ -363,8 +364,333 @@ $('#cNext').onclick=()=>goHit(1);$('#cPrev').onclick=()=>goHit(-1);$('#cq').onke
 $('#cCopy').onclick=async()=>{if(!SRC)return;try{await navigator.clipboard.writeText(SRC.text);toast(t('copied'))}catch(e){try{const a=document.createElement('textarea');a.value=SRC.text;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();toast(t('copied'))}catch(x){toast(t('copyFail'))}}};
 $('#cWrap').onclick=()=>{$('#cview').classList.toggle('wr');$('#cWrap').classList.toggle('on')};
 let fs=13;const setFs=d=>{fs=Math.max(9,Math.min(24,fs+d));$('#cview').style.setProperty('--fs',fs+'px')};$('#cFm').onclick=()=>setFs(-1);$('#cFp').onclick=()=>setFs(1);
+/* ---------- perapi kode (dipakai saat unduh) ---------- */
+const Fmt=(()=>{
+const pad=n=>'  '.repeat(Math.max(0,n));
+const KW=new Set(['if','for','while','switch','catch','with','return','typeof','void','delete','in','of','instanceof','case','throw','else','do','await','yield','new']);
+const REKW=new Set(['return','typeof','instanceof','in','of','new','delete','void','throw','case','do','else','yield','await']);
+const OBJW=new Set(['return','typeof','in','of','void','delete','throw','yield','await','const','let','var']);
+const OBJP=new Set(['=','(',',','[','?','&&','||','??','!','+=','|=','&&=','||=','??=',':','...']);
+const BIN=new Set('= == === != !== < > <= >= + - * / % ** & | ^ && || ?? << >> >>> += -= *= /= %= **= &= |= ^= <<= >>= >>>= &&= ||= ??= => ?'.split(' '));
+const PUNCT=['>>>=','...','===','!==','**=','<<=','>>=','>>>','&&=','||=','??=','=>','==','!=','<=','>=','&&','||','??','?.','++','--','+=','-=','*=','/=','%=','&=','|=','^=','<<','>>','**'];
+const CONT=new Set([')',']',',',';','.','?.',':','(','[','?','=','==','===','!=','!==','&&','||','??','*','/','%','<','>','<=','>=','+','-']);
+
+/* ===== JavaScript ===== */
+function skipStr(s,i){const q=s[i];i++;while(i<s.length){const c=s[i];if(c==='\\'){i+=2;continue}if(c===q)return i+1;if(c==='\n')return i;i++}return i}
+function skipTpl(s,i){i++;while(i<s.length){const c=s[i];if(c==='\\'){i+=2;continue}if(c==='`')return i+1;if(c==='$'&&s[i+1]==='{'){i=skipBrace(s,i+2);continue}i++}return i}
+function skipBrace(s,i){let d=1;while(i<s.length){const c=s[i];
+ if(c==='"'||c==="'"){i=skipStr(s,i);continue}
+ if(c==='`'){i=skipTpl(s,i);continue}
+ if(c==='/'&&s[i+1]==='/'){while(i<s.length&&s[i]!=='\n')i++;continue}
+ if(c==='/'&&s[i+1]==='*'){const e=s.indexOf('*/',i+2);i=e<0?s.length:e+2;continue}
+ if(c==='{')d++;else if(c==='}'){d--;if(!d)return i+1}
+ i++}return i}
+function scanRe(s,i){let j=i+1,cl=false;const n=s.length;while(j<n){const c=s[j];if(c==='\n')return -1;if(c==='\\'){j+=2;continue}if(c==='[')cl=true;else if(c===']')cl=false;else if(c==='/'&&!cl){j++;while(j<n&&/[a-z]/i.test(s[j]))j++;return j}j++}return -1}
+function reOk(l){if(!l)return true;if(l.t==='p')return !(l.v===')'||l.v===']'||l.v==='}'||l.v==='++'||l.v==='--');if(l.t==='w')return REKW.has(l.v)&&!l.prop;return false}
+function jsTok(s){
+ const T=[],n=s.length;let i=0,nlc=0,last=null;
+ while(i<n){
+  const c=s[i];
+  if(c==='\n'){nlc++;i++;continue}
+  if(/\s/.test(c)){i++;continue}
+  let t,j;
+  if(c==='/'&&s[i+1]==='/'){j=i;while(j<n&&s[j]!=='\n')j++;t='lc'}
+  else if(c==='/'&&s[i+1]==='*'){j=s.indexOf('*/',i+2);j=j<0?n:j+2;t='bc'}
+  else if(c==='"'||c==="'"){j=skipStr(s,i);t='s'}
+  else if(c==='`'){j=skipTpl(s,i);t='tpl'}
+  else if(c==='/'&&reOk(last)&&(j=scanRe(s,i))>0){t='re'}
+  else if(/[0-9]/.test(c)||(c==='.'&&/[0-9]/.test(s[i+1]||''))){
+   const m=/^(?:0[xXbBoO][\da-fA-F_]+n?|(?:\d[\d_]*\.?[\d_]*|\.\d[\d_]*)(?:[eE][+-]?\d+)?n?)/.exec(s.slice(i,i+80));j=i+m[0].length;t='w'}
+  else if(/[A-Za-z_$#\\\u0080-\uffff]/.test(c)){j=i+1;while(j<n&&/[\w$\u0080-\uffff\\]/.test(s[j]))j++;t='w'}
+  else{let m=null;for(const p of PUNCT){if(s.startsWith(p,i)&&!(p==='?.'&&/[0-9]/.test(s[i+2]||''))){m=p;break}}j=i+(m?m.length:1);t='p'}
+  let v=s.slice(i,j);if(t==='lc')v=v.replace(/\s+$/,'');
+  const k={t,v,nl:nlc>0,bl:nlc>1};
+  if(last&&last.t==='p'&&(last.v==='.'||last.v==='?.'))k.prop=true;
+  T.push(k);
+  if(t!=='lc'&&t!=='bc')last=k;
+  nlc=(t==='bc'&&v.includes('\n'))?1:0;
+  i=j;
+ }
+ return T}
+
+const endsExpr=p=>{if(!p)return false;if(p.t==='s'||p.t==='tpl'||p.t==='re')return true;if(p.t==='w')return !(KW.has(p.v)&&!p.prop);if(p.t==='p')return p.v===')'||p.v===']'||p.v==='}'||!!p.post;return false};
+
+function gap(p,k){
+ const pv=p.v,kv=k.v,pP=p.t==='p',kP=k.t==='p';
+ if(p.t==='bc')return !(kP&&(kv===')'||kv===']'||kv===','||kv===';'));
+ if(pP&&p.un)return false;
+ if(pP&&(pv==='('||pv==='['||pv==='.'||pv==='?.'||pv==='...'))return false;
+ if(pP&&pv==='{')return !!p.inl;
+ if(/^\d+$/.test(pv)&&kv==='.')return true;
+ if(kP&&(kv===')'||kv===']'||kv===','||kv===';'||kv==='.'||kv==='?.'))return false;
+ if(kP&&kv===':'&&!k.bin)return false;
+ if(kP&&kv==='}')return !!k.inl;
+ if(kP&&k.post)return false;
+ if(pP&&(p.bin||pv===','||pv===';'||pv===':'))return true;
+ if(kP&&k.bin)return true;
+ if(kP&&(kv==='('||kv==='['))return p.t==='w'&&!p.prop&&KW.has(pv);
+ if(kP&&kv==='{')return true;
+ if(pP&&(pv===')'||pv==='}'||pv===']'))return true;
+ if(p.t==='w'||p.t==='s'||p.t==='tpl'||p.t==='re')return true;
+ return false}
+
+function jsFmt(src,base){
+ const T=jsTok(src),n=T.length,o=[];
+ let ind=base||0,force=false,p=null,ps=null,pend=false,pendT=0,lastSw=false,afterDo=false;
+ const st=[{k:'root',tern:0}];
+ const top=()=>st[st.length-1];
+ for(let i=0;i<n;i++){
+  const k=T[i],nx=T[i+1],isP=k.t==='p',v=k.v;
+  if(isP){
+   const pe=endsExpr(ps);
+   if(v==='++'||v==='--'){if(pe&&!k.nl)k.post=true;else k.un=true}
+   else if(v==='!'||v==='~')k.un=true;
+   else if(v==='+'||v==='-'){if(pe)k.bin=true;else k.un=true}
+   else if(v===':'){const c=top();if(pend&&c.tern===pendT)k.kind='case';else if(c.tern>0){k.kind='tern';k.bin=true}else k.kind='prop'}
+   else if(BIN.has(v))k.bin=true;
+  }
+  let sp=null,x=0;
+  if(isP&&(v==='}'||v===')'||v===']')){
+   const c=st.length>1?st.pop():{};
+   if(v==='}'){
+    if(c.k==='blk'||(c.k==='obj'&&c.multi)){
+     if(!c.empty){if(c.caseOpen)ind--;ind--;sp='\n'}
+     k.blk=true;afterDo=!!c.doBody;
+    }else if(c.k==='obj'&&!c.empty)k.inl=true;
+   }else if(v===')')lastSw=!!c.kw;
+  }
+  if(k.t==='w'&&!k.prop&&(v==='case'||(v==='default'&&nx&&nx.v===':'))){
+   const c=top();
+   if(c.k==='blk'&&c.sw&&ps&&(ps.v==='{'||ps.v===';'||ps.v==='}'||ps.kind==='case')){
+    if(c.caseOpen){ind--;c.caseOpen=false}
+    sp='\n';pend=true;pendT=c.tern||0;
+   }
+  }
+  if(sp===null){
+   if(!p)sp='';
+   else if(p.t==='lc')sp='\n';
+   else if(force){if((k.t==='lc'||k.t==='bc')&&!k.nl)sp=' ';else sp='\n'}
+   else if(p.blk){
+    if(k.t==='lc'||k.t==='bc')sp=k.nl?'\n':' ';
+    else if(k.t==='w'&&!k.prop&&(v==='else'||v==='catch'||v==='finally'||(v==='while'&&afterDo)))sp=' ';
+    else if(isP&&CONT.has(v))sp=gap(p,k)?' ':'';
+    else sp='\n';
+   }
+   else if(k.t==='lc'||k.t==='bc')sp=k.nl?'\n':' ';
+   else if(k.nl&&(endsExpr(p)||p.t==='w'||p.t==='bc')&&!(isP&&(v===')'||v===']'||v===','||v===';'))){
+    sp='\n';const c=top();x=(c.k==='('||c.k==='['||(c.k==='obj'&&!c.multi))?1:0;
+   }
+   else sp=gap(p,k)?' ':'';
+  }
+  if(sp==='\n')force=false;
+  if(sp==='\n'){
+   o.push((k.bl&&p&&p.v!=='{'&&!(isP&&v==='}')?'\n':'')+'\n'+pad(ind+x));
+  }else{
+   if(sp===''&&p){
+    const a=p.v[p.v.length-1],b=v[0],pt=p.t,kt=k.t;
+    const wl=t=>t==='w'||t==='s'||t==='tpl'||t==='re';
+    if(((a==='+'||a==='-')&&b===a)||(a==='/'&&(b==='/'||b==='*'))||(wl(pt)&&wl(kt))||(/^\d+$/.test(p.v)&&v==='.')||(p.t==='lc'))sp=' ';
+   }
+   if(sp===' ')o.push(' ');
+  }
+  o.push(v);
+  if(isP){
+   const c=top();
+   if(v==='('){st.push({k:'(',tern:0,kw:!!(ps&&ps.t==='w'&&!ps.prop&&ps.v==='switch')})}
+   else if(v==='['){st.push({k:'[',tern:0})}
+   else if(v==='{'){
+    const empty=!!(nx&&nx.t==='p'&&nx.v==='}');
+    const prevObj=ps&&((ps.t==='p'&&OBJP.has(ps.v)&&ps.kind!=='case')||(ps.t==='w'&&OBJW.has(ps.v)&&!ps.prop));
+    if(prevObj){
+     if(empty)st.push({k:'obj',multi:false,empty:true,tern:0});
+     else{
+      let d=1,cnt=0,ok=true;
+      for(let j=i+1;j<n;j++){const q=T[j];cnt++;
+       if(q.t==='lc'||q.t==='bc'||cnt>16){ok=false;break}
+       if(q.t==='p'){if(q.v==='{'||q.v===';'||q.v==='=>'){ok=false;break}if(q.v==='}'){d--;if(!d)break}}
+       if(q.t==='w'&&q.v==='function'){ok=false;break}}
+      if(ok&&d===0){st.push({k:'obj',multi:false,tern:0});k.inl=true}
+      else{st.push({k:'obj',multi:true,tern:0});ind++;force=true}
+     }
+    }else{
+     st.push({k:'blk',tern:0,sw:!!(ps&&ps.v===')'&&lastSw),caseOpen:false,doBody:!!(ps&&ps.t==='w'&&ps.v==='do'),empty});
+     if(!empty){ind++;force=true}
+    }
+   }
+   else if(v==='?'){c.tern++}
+   else if(v===':'){if(k.kind==='tern')c.tern--;else if(k.kind==='case'){pend=false;force=true;ind++;c.caseOpen=true}}
+   else if(v===','){if(c.k==='obj'&&c.multi)force=true}
+   else if(v===';'){if(c.k!=='(')force=true}
+  }
+  p=k;if(k.t!=='lc'&&k.t!=='bc')ps=k;
+ }
+ return o.join('').trim()}
+
+function jsOk(a,b){
+ try{if(jsTok(a).map(x=>x.v).join('\u0001')!==jsTok(b).map(x=>x.v).join('\u0001'))return false}catch(e){return false}
+ try{new Function(a)}catch(e){if(e instanceof EvalError)return true;return false}
+ try{new Function(b)}catch(e){return false}
+ return true}
+
+/* ===== CSS ===== */
+function cssFmt(src,base){
+ const n=src.length,out=[];let i=0,ind=base||0,buf='',depth=0;
+ const line=s=>out.push(pad(ind)+s);
+ const clean=s=>s.replace(/\s+/g,' ').trim();
+ const decl=s=>{s=clean(s);if(!s||s[0]==='@')return s;let d=0,q='';
+  for(let j=0;j<s.length;j++){const c=s[j];if(q){if(c==='\\')j++;else if(c===q)q='';continue}
+   if(c==='"'||c==="'")q=c;else if(c==='(')d++;else if(c===')')d--;
+   else if(c===':'&&!d)return s.slice(0,j).trim()+': '+s.slice(j+1).trim()}
+  return s};
+ const prelude=s=>{s=clean(s);if(s[0]==='@')return s;
+  const parts=[];let d=0,q='',cur='';
+  for(let j=0;j<s.length;j++){const c=s[j];cur+=c;
+   if(q){if(c==='\\'){cur+=s[++j]||''}else if(c===q)q='';continue}
+   if(c==='"'||c==="'")q=c;else if(c==='('||c==='[')d++;else if(c===')'||c===']')d--;
+   else if(c===','&&!d){parts.push(cur.slice(0,-1).trim());cur=''}}
+  parts.push(cur.trim());
+  return parts.join(',\n'+pad(ind))};
+ while(i<n){
+  const c=src[i];
+  if(c==='/'&&src[i+1]==='*'){let e=src.indexOf('*/',i+2);e=e<0?n:e+2;const cm=src.slice(i,e);
+   if(!buf.trim())line(cm);else buf+=cm;i=e;continue}
+  if(c==='"'||c==="'"){let j=i+1;while(j<n&&src[j]!==c){if(src[j]==='\\')j++;j++}j=Math.min(j+1,n);buf+=src.slice(i,j);i=j;continue}
+  if((c==='u'||c==='U')&&/^url\(/i.test(src.slice(i,i+4))){let j=i+4,q='';
+   while(j<n){const d=src[j];if(q){if(d==='\\')j++;else if(d===q)q=''}else if(d==='"'||d==="'")q=d;else if(d===')')break;j++}
+   j=Math.min(j+1,n);buf+=src.slice(i,j);i=j;continue}
+  if(/\s/.test(c)){if(buf&&!/\s$/.test(buf))buf+=' ';i++;continue}
+  if(c==='('){depth++;buf+=c;i++;continue}
+  if(c===')'){depth--;buf+=c;i++;continue}
+  if(depth>0){buf+=c;i++;continue}
+  if(c==='{'){line(prelude(buf)+' {');ind++;buf='';i++;continue}
+  if(c==='}'){if(buf.trim())line(decl(buf)+';');buf='';ind--;line('}');
+   if(ind<=(base||0)&&src.slice(i+1).trim())out.push('');i++;continue}
+  if(c===';'){if(buf.trim())line(decl(buf)+';');buf='';i++;continue}
+  buf+=c;i++}
+ if(buf.trim())line(decl(buf)+(buf.trim()[0]==='@'?';':';'));
+ return out.join('\n').trim()}
+
+function cssOk(a,b){
+ const strip=s=>s.replace(/[\s;]+/g,'');
+ if(strip(a)!==strip(b))return false;
+ return true}
+
+/* ===== HTML ===== */
+const BLK=new Set('html head body title meta link base style script noscript template div section article aside header footer nav main figure figcaption address blockquote p h1 h2 h3 h4 h5 h6 ul ol li dl dt dd table thead tbody tfoot tr td th caption colgroup col form fieldset legend details summary dialog hr pre menu hgroup option optgroup'.split(' '));
+const VOID=new Set('area base br col embed hr img input link meta param source track wbr'.split(' '));
+const AUTO={li:['li'],p:['p'],td:['td','th'],th:['td','th'],tr:['tr','td','th'],dt:['dt','dd'],dd:['dt','dd'],option:['option']};
+
+function inner(name,open,content,base){
+ try{
+  if(!content.trim())return '';
+  if(name==='style'){const r=cssFmt(content,base);return cssOk(content,r)?r:null}
+  const m=/\stype\s*=\s*["']?([^"'\s>]+)/i.exec(open);
+  const ty=m?m[1].toLowerCase():'';
+  if(ty&&!/^(text|application)\/(x-)?(javascript|ecmascript)$/.test(ty))return null;
+  const r=jsFmt(content,base);
+  return jsOk(content,r)?r:null;
+ }catch(e){return null}}
+
+function html(src){
+ const CO='<'+'!'+'--',CE='-'+'-'+'>';
+ const re=new RegExp(CO+'[\\s\\S]*?'+CE+'|<![^>]*>|<\\?[\\s\\S]*?\\?>|</?[A-Za-z][^\\s/>]*(?:"[^"]*"|\'[^\']*\'|[^\'">])*>','g');
+ const low=src.toLowerCase(),toks=[];
+ let pos=0,m;
+ while((m=re.exec(src))){
+  if(m.index>pos)toks.push({k:'text',v:src.slice(pos,m.index)});
+  const s=m[0];pos=re.lastIndex;
+  if(s.startsWith(CO))toks.push({k:'comment',v:s});
+  else if(s[1]==='!'||s[1]==='?')toks.push({k:'decl',v:s});
+  else if(s[1]==='/')toks.push({k:'close',v:s,name:/^<\/([^\s>]+)/.exec(s)[1].toLowerCase()});
+  else{
+   const name=/^<([^\s/>]+)/.exec(s)[1].toLowerCase(),self=/\/>$/.test(s);
+   if(!self&&(name==='script'||name==='style'||name==='pre'||name==='textarea')){
+    let idx=low.indexOf('</'+name,pos),end;
+    if(idx<0){idx=src.length;end=src.length}else{end=low.indexOf('>',idx);end=end<0?src.length:end+1}
+    toks.push({k:'raw',name,open:s,content:src.slice(pos,idx),close:src.slice(idx,end)});
+    pos=end;re.lastIndex=end;
+   }else toks.push({k:'open',v:s,name,self});
+  }
+ }
+ if(pos<src.length)toks.push({k:'text',v:src.slice(pos)});
+
+ const st=[];let o='',after='start';
+ const depth=()=>st.length;
+ const nl=()=>{o=o.replace(/[ \t]+$/,'');if(o)o+='\n'+pad(depth())};
+ const mark=()=>{if(st.length)st[st.length-1].bc=true};
+ const blockName=(name,top)=>{
+  if(top&&top.svg==='inline')return false;
+  if(name==='svg')return !top||top.block;
+  if(top&&top.svg==='block')return true;
+  return BLK.has(name)};
+ const isBlockTok=t=>{
+  if(!t)return true;
+  if(t.k==='comment'||t.k==='decl')return true;
+  if(t.k==='raw')return t.name!=='textarea';
+  const top=st[st.length-1];
+  if(t.k==='close'){return top&&top.name===t.name?top.block||top.bc:blockName(t.name,top)}
+  if(t.k==='open')return blockName(t.name,top);
+  return false};
+ for(let i=0;i<toks.length;i++){
+  const t=toks[i],nx=toks[i+1];
+  if(t.k==='text'){
+   const core=t.v.replace(/\s+/g,' '),nb=isBlockTok(nx);
+   if(!core.trim()){if(after==='inl'&&!nb&&core)o+=' ';continue}
+   let lead=/^ /.test(core);const trail=/ $/.test(core);
+   if(after==='close'){nl();lead=false}else if(after==='open'||after==='start')lead=false;
+   if(lead)o+=' ';
+   o+=core.trim();if(trail&&!nb)o+=' ';
+   after='inl';
+  }else if(t.k==='comment'||t.k==='decl'){
+   nl();o+=t.v;mark();after='close';
+  }else if(t.k==='raw'){
+   if(t.name==='textarea'){if(after==='close')nl();o+=t.open+t.content+t.close;after='inl'}
+   else if(t.name==='pre'){nl();o+=t.open+t.content+t.close;mark();after='close'}
+   else{
+    nl();mark();o+=t.open;
+    const r=inner(t.name,t.open,t.content,depth()+1);
+    if(r===null)o+=t.content+t.close;
+    else if(r==='')o+=t.close;
+    else o+='\n'+pad(depth()+1)+r+'\n'+pad(depth())+t.close;
+    after='close';
+   }
+  }else if(t.k==='open'){
+   while(st.length&&AUTO[t.name]&&AUTO[t.name].includes(st[st.length-1].name))st.pop();
+   const top=st[st.length-1],block=blockName(t.name,top);
+   let svg;if(t.name==='svg')svg=block?'block':'inline';else if(top&&top.svg)svg=top.svg;
+   if(block){nl();mark()}else if(after==='close')nl();
+   o+=t.v;
+   if(VOID.has(t.name)||t.self)after=block?'close':'inl';
+   else{st.push({name:t.name,block,svg,bc:false});after=block?'open':'inl'}
+  }else if(t.k==='close'){
+   let idx=-1;for(let j=st.length-1;j>=0;j--)if(st[j].name===t.name){idx=j;break}
+   if(idx<0){o+=t.v;continue}
+   st.length=idx+1;
+   const e=st.pop();
+   if(e.bc)nl();
+   o+=t.v;
+   after=(e.block||e.bc)?'close':'inl';
+  }
+ }
+ return o.replace(/[ \t]+$/gm,'').trim()+'\n'}
+
+function run(src){
+ const r=html(src);
+ if(typeof DOMParser!=='undefined'){
+  const A=new DOMParser().parseFromString(src,'text/html'),B=new DOMParser().parseFromString(r,'text/html');
+  const sig=d=>[...d.querySelectorAll('*')].map(e=>e.tagName).join(',');
+  const txt=d=>{d.querySelectorAll('script,style').forEach(e=>{e.textContent=''});return d.documentElement.textContent.replace(/\s+/g,'')};
+  if(sig(A)!==sig(B)||txt(A)!==txt(B))return null;
+ }
+ return r}
+
+return {run,html,jsFmt,jsOk,cssFmt,cssOk,jsTok}})();
+if(typeof module!=='undefined')module.exports=Fmt;
+
 async function downloadSrc(x){const r=await probe(x);if(!r.text){toast(diagMsg(x,r)||t('codeFail'));return}if(r.problem&&r.problem!=='small'){toast(diagMsg(x,r));return}
- const blob=new Blob([r.text],{type:'text/html;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=x.file.split('/').pop();document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),6000);toast(t('downloaded')+': '+a.download+(r.problem==='small'?' ('+fmtB(r.bytes)+')':''))}
+ let text=r.text,tidy=false;toast(t('tidying'));await new Promise(z=>setTimeout(z,40));
+ try{const f=Fmt.run(text);if(f){text=f;tidy=true}}catch(e){}
+ const blob=new Blob([text],{type:'text/html;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=x.file.split('/').pop();document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),6000);toast(t('downloaded')+': '+a.download+' · '+t(tidy?'tidied':'notTidied'))}
 
 applyTheme();applyLang();routeHash();
 </script>
